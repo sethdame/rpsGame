@@ -11,13 +11,13 @@
 	</div>
 	<div>
 		<h2>Play Again!</h2>
+		<div id="displayBox">
+			<p id="playAgain"></p>
+		</div>
 		<button type="button" id="play" onclick="playAgain()">Press To Play again</button>
-		<button type="button" id="show" onclick="compareAgain(rock, choice2)">Rock</button>
-	    <button type="button" id="show" onclick="compareAgain(paper, choice2)">Paper</button>
-	    <button type="button" id="show" onclick="compareAgain(scissors, choice2)">scissors</button>
-	</div>
-	<div id="displayBox">
-		<p id="playAgain"></p>
+		<button type="button" id="show" onclick="compareAgain('rock', choice2)">Rock</button>
+	    <button type="button" id="show" onclick="compareAgain('paper', choice2)">Paper</button>
+	    <button type="button" id="show" onclick="compareAgain('scissors', choice2)">scissors</button>
 	</div>
 	<div class="counterBox">
 		<label>Wins</label>
