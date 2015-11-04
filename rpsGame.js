@@ -83,22 +83,10 @@ var ties = 0;
 
 ////////PLAY AGAIN FROM BUTTON/////////////
 
-
-var againAgain = function() {
-    var playAgain = window.confirm("Do you want to play again?");
-    if (playAgain == true) {
-        playAgain();
-    } else {
-        alert("Thanks for playing AGAIN!");
-    }
-}
 var tieAgain = function() {
     ties += 1;
     document.getElementById("tie").innerHTML = ties;
     document.getElementById("playAgain").innerHTML = "Tie! Play again!";
-}
-var wrongChoiceAgain = function() {
-    document.getElementById("playAgain").innerHTML = "Choose again :/";
 }
 var winAgain = function() {
     wins += 1;
@@ -114,41 +102,61 @@ var playAgain = function() {
     document.getElementById("playAgain").innerHTML = 
     "Do you choose rock, paper or scissors?";
 } 
-var computerChoice = Math.random();
-    if (computerChoice < 0.34) {
-        computerChoice = "rock";
-    } else if(computerChoice <= 0.67) {
-        computerChoice = "paper";
-    } else {
-        computerChoice = "scissors";
-    }
-var display = document.getElementById("playAgain").innerHTML
 
+var jsmChoice = function(tool) {
+    document.getElementById("playAgain").innerHTML = "jsMachine chooses" + " " + tool;
+}
+// var jsmChoice2 = function() {
+//     document.getElementById("playAgain").innerHTML = "jsMachine chooses paper";
+// }
+// var jsmChoice3 = function() {
+//     document.getElementById("playAgain").innerHTML = "jsMachine chooses scissors";
+// }
+var computerChoice = function() {
+    var i = Math.random();
+    if (i < 0.34) {
+        i = "rock";
+    } else if (i <= 0.67) {
+        i = "paper";
+    } else {
+        i = "scissors";
+    }
+    return i;
+}
+var returnTimeout = function(fnc) {
+    setTimeout(fnc, 1000);
+    fnc();
+}
 var compareAgain = function(choice1, choice2) {
     if (choice1 === choice2) {
         return tieAgain();
     } else if (choice1 === "rock") {
         if (choice2 === "scissors") {
-            return winAgain();
+            jsmChoice3();
+            return returnTimeout(winAgain);
         } else {
-            return loseAgain();
+            jsmChoice2();
+            return returnTimeout(loseAgain);
         }
     } else if (choice1 === "paper") {
         if (choice2 === "rock") {
-            return winAgain();
+            jsmChoice1();
+            return returnTimeout(winAgain);
         } else {
-            return loseAgain();
+            jsmChoice3();
+            return returnTimeout(loseAgain);
         }
     } else if (choice1 === "scissors") {
         if (choice2 === "rock") {
-            return loseAgain();
+            jsmChoice1();
+            return returnTimeout(loseAgain);
         } else {
-            return winAgain();
+            jsmChoice2();
+            return returnTimeout(winAgain);
         }
-    } else if (choice1 != "scissors", "rock", "paper") {
-        return wrongChoiceAgain();
     }
 }
+
 
 
 
