@@ -1,3 +1,10 @@
+$(document).ready(function() {
+    $("button#show").hide();
+    $("#play").click(function() {
+        $("button#show").show("slow");
+    })
+})
+
 var wins = 0;
 var losses = 0;
 var ties = 0;
@@ -75,12 +82,12 @@ var rpsGame = function() {
 rpsGame();
 
 ////////PLAY AGAIN FROM BUTTON/////////////
-$(document).ready(function() {
-    $("button#show").hide();
-    $("#play").click(function() {
-        $("button#show").show("slow");
-    })
-})
+
+
+var rock = "rock";
+var paper = "paper";
+var scissors = "scissors";
+
 var againAgain = function() {
     var playAgain = window.confirm("Do you want to play again?");
     if (playAgain == true) {
@@ -112,7 +119,17 @@ var loseAgain = function() {
     againAgain();
 }
 
-var compareAgain = function(choice1, choice2) {
+var playAgain = function(choice1, choice2) {
+    document.getElementById("playAgain") = "Do you choose rock, paper or scissors?";
+    var computerChoice = Math.random();
+    if (computerChoice < 0.34) {
+        choice2 = "rock";
+    } else if(computerChoice <= 0.67) {
+        choice2 = "paper";
+    } else {
+        choice2 = "scissors";
+    }
+
     if (choice1 === choice2) {
         return tieAgain();
     } else if (choice1 === "rock") {
@@ -138,20 +155,6 @@ var compareAgain = function(choice1, choice2) {
     }
 }
 
-var playAgain = function() {
-    document.getElementById("playAgain") = "Do you choose rock, paper or scissors?";
-    var userChoice = "";
-    var computerChoice = Math.random();
-    if (computerChoice < 0.34) {
-        computerChoice = "rock";
-    } else if(computerChoice <= 0.67) {
-        computerChoice = "paper";
-    } else {
-        computerChoice = "scissors";
-    } console.log("Computer: " + computerChoice);
-
-    compareAgain(userChoice, computerChoice);
-}
 
 
 
