@@ -5,9 +5,9 @@ $(document).ready(function() {
     })
 })
 
-// var wins = 0;
-// var losses = 0;
-// var ties = 0;
+var wins = 0;
+var losses = 0;
+var ties = 0;
 
 // var again = function() {
 //     var playAgain = window.confirm("Do you want to play again?");
@@ -68,16 +68,16 @@ $(document).ready(function() {
 
 // var rpsGame = function() {
 //     var userChoice = prompt("Do you choose rock, paper or scissors?");
-//     var computerChoice = Math.random();
-//     if (computerChoice < 0.34) {
-//         computerChoice = "rock";
-//     } else if(computerChoice <= 0.67) {
-//         computerChoice = "paper";
+//     var choice2 = Math.random();
+//     if (choice2 < 0.34) {
+//         choice2 = "rock";
+//     } else if(choice2 <= 0.67) {
+//         choice2 = "paper";
 //     } else {
-//         computerChoice = "scissors";
-//     } console.log("Computer: " + computerChoice);
+//         choice2 = "scissors";
+//     } console.log("Computer: " + choice2);
 
-//     compare(userChoice, computerChoice);
+//     compare(userChoice, choice2);
 // }
 // rpsGame();
 
@@ -96,64 +96,57 @@ var tieAgain = function() {
     ties += 1;
     document.getElementById("tie").innerHTML = ties;
     document.getElementById("playAgain").innerHTML = "Tie! Play again!";
-    playAgain(); 
 }
 var wrongChoiceAgain = function() {
     document.getElementById("playAgain").innerHTML = "Choose again :/";
-    playAgain();
 }
 var winAgain = function() {
     wins += 1;
     document.getElementById("win").innerHTML = wins;
     document.getElementById("playAgain").innerHTML = "You Win!";
-    againAgain();
 }
 var loseAgain = function() {
     losses += 1;
     document.getElementById("loss").innerHTML = losses;
     document.getElementById("playAgain").innerHTML = "I beat you!";
-    againAgain();
 }
 var playAgain = function() {
     document.getElementById("playAgain").innerHTML = 
     "Do you choose rock, paper or scissors?";
-}
-var compareAgain = function(choice1, choice2) {
-    // var rock = "rock";
-    // var paper = "paper";
-    // var scissors = "scissors";
-
-    var computerChoice = Math.random();
+} 
+var computerChoice = Math.random();
     if (computerChoice < 0.34) {
-        choice2 = "rock";
+        computerChoice = "rock";
     } else if(computerChoice <= 0.67) {
-        choice2 = "paper";
+        computerChoice = "paper";
     } else {
-        choice2 = "scissors";
+        computerChoice = "scissors";
     }
+var display = document.getElementById("playAgain").innerHTML
 
+var compareAgain = function(choice1, choice2) {
     if (choice1 === choice2) {
-        return tie();
+        return tieAgain();
     } else if (choice1 === "rock") {
         if (choice2 === "scissors") {
-            return win();
+            return winAgain();
         } else {
-            return lose();
+            return loseAgain();
         }
     } else if (choice1 === "paper") {
         if (choice2 === "rock") {
-            return win();
+            return winAgain();
         } else {
-            return lose();
+            return loseAgain();
         }
     } else if (choice1 === "scissors") {
         if (choice2 === "rock") {
-            return lose();
+            return loseAgain();
         } else {
-            return win();
+            return winAgain();
         }
     } else if (choice1 != "scissors", "rock", "paper") {
-        return wrongChoice();
+        return wrongChoiceAgain();
     }
 }
 
