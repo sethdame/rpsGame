@@ -50,7 +50,7 @@ function jsMachineStrategy() {
     return i;
 }
 var returnTimeout = function(fnc) {
-    setTimeout(fnc, 1000);
+    setTimeout(fnc, 1500);
 }
 var play = function(choice1, choice2) {
     if (choice1 === choice2) {
