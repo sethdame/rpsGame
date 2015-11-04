@@ -74,8 +74,29 @@ var rpsGame = function() {
 }
 rpsGame();
 
-////////FROM BUTTON/////////////
-
+////////PLAY AGAIN FROM BUTTON/////////////
+var tieAgain = function() {
+    ties += 1;
+    document.getElementById("tie").innerHTML = ties;
+    confirm("Tie! Play again!");
+    playAgain(); 
+}
+var wrongChoiceAgain = function() {
+    confirm("Choose again!");
+    playAgain();
+}
+var winAgain = function() {
+    wins += 1;
+    document.getElementById("win").innerHTML = wins;
+    confirm("You Win!");
+    again();
+}
+var loseAgain = function() {
+    losses += 1;
+    document.getElementById("loss").innerHTML = losses;
+    confirm("I beat you!");
+    again();
+}
 var playAgain = function() {
     var userChoice = document.getElementById("playAgain") = "Do you choose rock, paper or scissors?";
     var computerChoice = Math.random();
@@ -87,9 +108,9 @@ var playAgain = function() {
         computerChoice = "scissors";
     } console.log("Computer: " + computerChoice);
 
-    compare(userChoice, computerChoice);
+    compareAgain(userChoice, computerChoice);
 }
-var compare = function(choice1, choice2) {
+var compareAgain = function(choice1, choice2) {
     if (choice1 === choice2) {
         return tieAgain();
     } else if (choice1 === "rock") {
@@ -114,4 +135,5 @@ var compare = function(choice1, choice2) {
         return wrongChoiceAgain();
     }
 }
+
 
