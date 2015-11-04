@@ -75,41 +75,43 @@ var rpsGame = function() {
 rpsGame();
 
 ////////PLAY AGAIN FROM BUTTON/////////////
+$(document).ready(function() {
+    $("button#show").hide();
+    $("#play").click(function() {
+        $("button#show").show("slow");
+    })
+})
+var againAgain = function() {
+    var playAgain = window.confirm("Do you want to play again?");
+    if (playAgain == true) {
+        playAgain();
+    } else {
+        alert("Thanks for playing AGAIN!");
+    }
+}
 var tieAgain = function() {
     ties += 1;
     document.getElementById("tie").innerHTML = ties;
-    confirm("Tie! Play again!");
+    document.getElementById("playAgain").innerHTML = "Tie! Play again!";
     playAgain(); 
 }
 var wrongChoiceAgain = function() {
-    confirm("Choose again!");
+    document.getElementById("playAgain").innerHTML = "Choose again :/";
     playAgain();
 }
 var winAgain = function() {
     wins += 1;
     document.getElementById("win").innerHTML = wins;
-    confirm("You Win!");
-    again();
+    document.getElementById("playAgain").innerHTML = "You Win!";
+    againAgain();
 }
 var loseAgain = function() {
     losses += 1;
     document.getElementById("loss").innerHTML = losses;
-    confirm("I beat you!");
-    again();
+    document.getElementById("playAgain").innerHTML = "I beat you!";
+    againAgain();
 }
-var playAgain = function() {
-    var userChoice = document.getElementById("playAgain") = "Do you choose rock, paper or scissors?";
-    var computerChoice = Math.random();
-    if (computerChoice < 0.34) {
-        computerChoice = "rock";
-    } else if(computerChoice <= 0.67) {
-        computerChoice = "paper";
-    } else {
-        computerChoice = "scissors";
-    } console.log("Computer: " + computerChoice);
 
-    compareAgain(userChoice, computerChoice);
-}
 var compareAgain = function(choice1, choice2) {
     if (choice1 === choice2) {
         return tieAgain();
@@ -135,5 +137,21 @@ var compareAgain = function(choice1, choice2) {
         return wrongChoiceAgain();
     }
 }
+
+var playAgain = function() {
+    document.getElementById("playAgain") = "Do you choose rock, paper or scissors?";
+    var userChoice = "";
+    var computerChoice = Math.random();
+    if (computerChoice < 0.34) {
+        computerChoice = "rock";
+    } else if(computerChoice <= 0.67) {
+        computerChoice = "paper";
+    } else {
+        computerChoice = "scissors";
+    } console.log("Computer: " + computerChoice);
+
+    compareAgain(userChoice, computerChoice);
+}
+
 
 

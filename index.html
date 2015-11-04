@@ -6,11 +6,17 @@
 </head>
 <body>
 	<div class="mainBox">
-		<h1>RPS Against my Computer!</h1>
+		<h1>RPS Against ME!</h1>
 		<img src="RPS.png" />	
 	</div>
-	<button onclick="rpsGame()">PLAY AGAIN!</button>
-	<p id="playAgain"></p>
+	<div>
+		<h2>Play Again!</h2>
+		<button type="button" id="play" onclick="playAgain()">Press To Play again</button>
+		<button type="button" id="show" onclick="compareAgain(rock, choice2)">Rock</button>
+	    <button type="button" id="show" onclick="compareAgain(paper, choice2)">Paper</button>
+	    <button type="button" id="show" onclick="compareAgain(scissors, choice2)">scissors</button>
+		<p id="playAgain"></p>
+	</div>
 	<div class="counterBox">
 		<label>Wins</label>
 		<p id="win"></p>
@@ -20,7 +26,7 @@
 		<p id="tie"></p>
 	</div>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript" src="rpsGame.js"></script>
 </body>
 </html>
